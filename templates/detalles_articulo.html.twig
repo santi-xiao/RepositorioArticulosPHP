@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Repositorio | Detalles{%endblock%}
+
+{%block body%}
+    <div class="container mb-3">
+        <p class="text-muted float-end">{{articulo.fecha}}</p>
+        <h1 class="mb-3">{{articulo.titulo}}</h1>
+        <p class="mb-5">Resumen: {{articulo.resumen}}</p>
+        <div class="container-fluid row mb-3">
+            <p class="col-4">Categoría: {{articulo.categoria}} </p>
+            <p class="col-4">Medio: {{articulo.medio}}</p>
+            <p class="col-4">Comentario: {{articulo.comentario}}</p>
+        </div>
+        <div class="border border-success rounded mb-4">
+            <p class="p-3 justify-content-center">{{articulo.texto}}</p>
+        </div>
+        <a href="{{articulo.url}}">{{articulo.url}}</a>
+        <div class="float-end">
+            <a href="{{path('editar-articulo', {id: articulo.id})}}" class="btn btn-success">Editar</a>
+            <a href="{{path('eliminar-articulo', {id: articulo.id})}}" class="btn btn-outline-danger">Borrar</a>
+        </div>
+    </div>
+{%endblock%}

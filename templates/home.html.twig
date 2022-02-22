@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Repositorio | Home{%endblock%}
+
+{%block body%}
+<div class="container row m-auto">
+        <div class="col-3 border-end border-1 border-success">
+            <h2 class="text-center mb-3">Categorias</h2>
+            {% for categoria in categorias %}
+            {% for nombreCat in categoria %}
+            <div class="card mb-3 col-8 m-auto btn-outline-success">
+                <a href="{{path('filtro-articulos', {nombreCat: nombreCat})}}" class="text-decoration-none">
+                    <div class="card-body">
+                        <h5 class="card-title text-capitalize text-dark">{{nombreCat}}</h5>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            {%endfor%}
+        </div>
+        <div class="col-9">
+            <h2 class="text-center mb-3">Articulos</h2>
+            {% for articulo in articulos %}
+            <div class="card mb-3 col-8 m-auto">
+                <div class="card-body">
+                    <p class="text-muted float-end">{{articulo.fecha}}</p>
+                    <h5 class="card-title">{{articulo.titulo}}</h5>
+                    <p class="card-text">{{articulo.resumen}}</p>
+                    <a href="{{path('detalles-articulo', {id: articulo.id})}}" class="btn btn-success float-end">Detalles</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>  
+</div>
+{%endblock%}
