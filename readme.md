@@ -14,6 +14,16 @@ Para poder ejecutar la plicación abrá que tener **instalado**:
 | PHP         | 8.0.2 (o mayor)           |
 | Symfony     | Instalar con **Composer** |
 
+Instalamos las dependencias necesarias para correr el proyecto  
+```
+composer install
+```
+
+Ejecutamos la migración
+```
+php bin/console doctrine:migrations:migrate
+```
+
 Para ejecutar la aplicación se abrirá una consola desde la carpeta raíz del proyecto y usaremos el comando
 
 ```
